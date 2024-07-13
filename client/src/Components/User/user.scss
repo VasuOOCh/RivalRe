@@ -1,0 +1,21 @@
+.userBox{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    gap: 10px;
+    margin: 10px;
+    width: 200px;
+
+    img{
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+
+    h2{
+        font-size: 1rem;
+    }
+}

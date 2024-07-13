@@ -1,0 +1,54 @@
+.updateUser {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px 1px gray;
+    gap: 20px;
+    // align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+
+        .displayImage {
+            height: 64px;
+            width: 64px;
+            border-radius: 5px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .inputs {
+            display: flex;
+            gap: 10px;
+
+            input {
+
+                padding: 10px 20px;
+                border: 1px solid gray;
+                border-radius: 5px;
+            }
+        }
+
+
+
+        .updateBtn {
+            padding: 10px 20px;
+            border: none;
+            background-color: #bc02c9;
+            color: white;
+            // color: white;
+            border-radius: 5px;
+        }
+    }
+}

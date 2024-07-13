@@ -1,0 +1,72 @@
+.profilePage{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // background-color: red;
+    background-color: #e6e6e6;
+    gap: 30px;
+    padding: 20px;
+
+    .userInfoSection{
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 50%;
+        box-shadow: 0 0 10px 1px gray;
+
+        .avatar {
+            height: 128px;
+            width: 128px;
+            // border: 1px solid red;
+            border-radius: 50%;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+
+        .userInfo{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h1{
+                font-size: 1.5rem;
+            }
+            .statsSection{
+                display: flex;
+                gap: 10px;
+
+                .followingSection, .followersSection {
+                    padding: 5px 10px;
+                    background-color: #e3e3e3;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    .selectSection{
+        display: flex;
+        gap: 10px;
+
+        *{
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 5px;
+
+        }
+
+        .active{
+            background-color: rgb(188, 3, 201);
+            color: white;
+        }
+    }
+}

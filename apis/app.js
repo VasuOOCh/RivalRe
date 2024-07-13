@@ -3,6 +3,9 @@ const app = express();
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import authRouter from "./routes/authRoute.js"
+import postRouter from "./routes/postRoute.js"
+import userRouter from "./routes/userRoute.js"
+// import commentRouter from "./routes/authRoute.js"
 import cors from 'cors'
 import cookieParser from "cookie-parser";
 
@@ -24,6 +27,8 @@ app.use(cors({
 }))
 
 app.use('/api/auth', authRouter);
+app.use('/api/posts', postRouter);
+app.use('/api/users', userRouter);
 
 app.use((err,req,res,next) => {
   console.log( "Error is : ", err);

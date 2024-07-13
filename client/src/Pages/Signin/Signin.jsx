@@ -4,7 +4,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchUserStart,fetchUserFailure,fetchUserSuccess } from '../../Redux/userSlice';
+import { fetchUserStart,fetchUserFailure,fetchUserSuccess,followUser } from '../../Redux/userSlice';
 
 const Signin = () => {
     const [error,setError] = useState('')

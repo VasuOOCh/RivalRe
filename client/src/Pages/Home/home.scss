@@ -1,4 +1,58 @@
 .home{
     flex: 1;
-    // background-color: red;
+    background-color: rgb(230, 230, 230);
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+
+    .postSwitch{
+        width: 500px;
+        // border: 1px solid green;
+        display: flex;
+        gap: 10px;
+        
+        .homePosts{
+            text-align: center;
+            cursor: pointer;
+            background-color: white;
+            border-radius: 3px;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .followingPosts{
+            text-align: center;
+            cursor: pointer;
+            border-radius: 3px;
+            background-color: white;
+            flex: 1;
+            padding: 10px;
+        }
+
+        .active{
+            background-color: rgb(68, 136, 232);
+            color: white;
+        }
+
+        
+        
+    }
+
+    .homeLeft{
+        flex: 1;
+        // background-color: red;
+    }
+    .homeRight{
+        flex: 1;
+        // background-color: red;
+    }
+    .homeMain{
+        // background-color: red;
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        
+    }
 }

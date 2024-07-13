@@ -1,0 +1,146 @@
+.cardMain{
+    background-color: white;
+    width: 500px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0 0 10px 1px grey;
+
+    .userSection{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+
+        img{
+            height: 32px;
+            width: 32px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .extraInfo{
+            display: flex;
+            flex-direction: column;
+            .username{
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                cursor: pointer;
+
+                .name {
+                    &:hover {
+                        color: rgb(49, 98, 158)
+                    }
+                }
+                span{
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    color: rgb(67, 139, 226);
+                }
+            }
+
+            .date{
+               font-size: 0.8rem; 
+               color: rgb(98, 98, 98);
+            }
+        }
+
+        .moreSection{
+            margin-left: auto;
+            position: relative;
+
+            .moreIcon{
+                border-radius: 50%;
+                &:hover{
+                    background-color: rgb(215, 215, 215);
+                }
+            }
+
+            .options{
+                position: absolute;
+                top: -10px;
+                border-radius: 5px;
+                right: -130px;
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                box-shadow: 0 0 10px 1px grey;
+                
+                button{
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: white;
+
+                    &:hover{
+                        background-color: rgb(223, 223, 223);
+                    }
+                }
+            }
+        }
+    }
+
+    .desc{
+        padding: 5px;
+    }
+
+    .imageSection{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 10px;
+        // background-color: rgb(183, 183, 183);
+        border-radius: 10px;
+        // border: 1px solid gray;
+        .leftBtn , .rightBtn{
+            padding: 4px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .postImages{
+            width: 100%;
+            height: 350px;
+            display: flex;
+
+
+            img{
+                border-radius: 5px;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .statsSection{
+        display: flex;
+        gap: 20px;
+
+        .likes{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .dislikes{
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .comments{
+            cursor: pointer;
+            color: grey;
+            margin-left: auto;
+        }
+    }
+}

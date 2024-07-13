@@ -1,0 +1,127 @@
+.addPost {
+    padding: 20px;
+    // border: 1px solid grey;
+    width: 500px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 1px grey;
+
+    form{
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        width: 100%;
+
+        .inputs{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+
+            .mainUpload{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                padding: 3px;
+                
+                    border-radius: 3px;
+                    // border: 1px solid grey;
+
+                    img{
+                        height: 32px;
+                        object-fit: cover;
+                        width: 32px;
+                        border-radius: 50%;
+                    }
+                input{
+                    padding: 10px;
+                    width: 100%;
+                    background-color: #e3e3e3;
+                    border: none;
+                    outline: none;
+                    border-radius: 10px;
+                    // border: 1px solid grey;
+                }
+
+                button {
+                    background-color: transparent;
+                    padding: 5px;
+                    color: black;
+                    border: none;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .viewImages{
+                display: flex;
+                gap: 5px;
+                position: relative;
+
+                .showImg{
+                    position: relative;
+
+                    img{
+                        background-color: rgb(15, 12, 12);
+                        border-radius: 5px;
+                        height: 64px;
+                        width: 64px;
+                        object-fit: cover;
+                        
+                    }
+    
+                    .cross{
+                        position: absolute;
+                        top: 2px;
+                        right: 2px;
+                        background-color: rgb(255, 255, 255);
+                        color: black;
+                        padding: 5px 10PX;
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            
+
+            .uploads{
+                display: flex;
+                gap: 10px;
+
+                *{
+                    cursor: pointer;
+                }
+
+                .emoji{
+                    // flex: 1;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 5px;
+                    background-color: rgb(126, 255, 57);
+                    border-radius: 3px;
+                    font-size: 0.9rem;
+                }
+            }
+
+            .emojiSection{
+                position: relative;
+
+                .exitEmoji{
+                    cursor: pointer;
+                    position: absolute;
+                    background-color: black;
+                    color: white;
+                    padding: 5px 10px;
+                    border-radius: 50%;
+                    top: 10px;
+                    right: 0;
+                }
+            }
+        }
+        
+    }
+}
