@@ -13,18 +13,9 @@ const commentSchema = new mongoose.Schema({
         type : mongoose.Types.ObjectId,
         required : true
     },
-    likes : [
-        {
-            type : mongoose.Types.ObjectId,
-        }
-    ],
-    dislikes : [
-        {
-            type : mongoose.Types.ObjectId,
-        }
-    ],
+
 
 }, {timestamps :true})
 
 const Comment = mongoose.model('Comment', commentSchema);
-export default User;
+export default Comment;

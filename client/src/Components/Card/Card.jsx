@@ -11,6 +11,7 @@ import { fetchUserStart, fetchUserFailure, fetchUserSuccess, followUser, unfollo
 import ImageSlider from '../ImageSlider/ImageSlider';
 import { Link, useNavigate } from 'react-router-dom';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Comment from '../Comments/Comment';
 
 
 
@@ -20,6 +21,7 @@ const Card = ({post}) => {
     const dispatch = useDispatch()
     const { currentUser } = useSelector((state) => state.user)
     const [userDetails, setUserDetails] = useState({});
+    const [showComments,setShowComments] = useState(false)
     async function deletePost() {
         try {
             await axios.delete('/posts/' + post._id)
@@ -190,10 +192,18 @@ const Card = ({post}) => {
                     }
                 </div>
 
-                <div className="comments">
-                    3 comments
+                <div className="comments" onClick={() => setShowComments(!showComments)}>
+                    Comments
                 </div>
+
+                
             </div>
+            {
+                    showComments && (
+
+                        <Comment postId={post._id} />
+                    )
+                }
 
         </div>
     )

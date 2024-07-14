@@ -1,10 +1,12 @@
 import React from 'react'
 import "./layout.scss"
-import { Outlet } from 'react-router-dom'
+import { Navigate, Outlet, useNavigate } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar' 
 import Footer from '../../Components/Footer/Footer'
+import { useSelector, useDispatch } from 'react-redux'
 
-const Layout = () => {
+export const Layout = () => {
+  
   return (
     <div className='layout'>
       <Navbar />
@@ -15,4 +17,16 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export const AuthLayout = () => {
+  const { currentUser } = useSelector((state) => state.user);
+  if(!currentUser) return <Navigate to={'/signin'} />
+
+    return (
+      <div className='layout'>
+        <Navbar />
+        <Outlet />
+        <Footer/>
+      </div>
+  
+    )
+}

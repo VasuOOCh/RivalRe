@@ -29,21 +29,30 @@ const Navbar = () => {
           Rival.Re
         </div>
         <ul className="navItems">
+          <Link to={'/'} style={{
+            textDecoration : "none",
+            color : 'inherit'
+          }}>
           <li>Home</li>
+          </Link>
           <li>About</li>
           <li>Report a bug</li>
         </ul>
         <ul className='user'>
           {
             currentUser ?
-              <Link style={{ color: "inherit", textDecoration: "none" }} to={'/profile/' + currentUser._id}>
+              <>
+              
               <div className="currentUser">
+              <Link style={{ color: "inherit", textDecoration: "none" }} to={'/profile/' + currentUser._id}>
                 <div className="userInfo">
                   <img src={currentUser.avatar} alt="img" />
                   <span>{currentUser.username}</span>
                 </div>
+                </Link>
                 <button onClick={handleLogout} className='logout'>Logout</button>
-              </div></Link> :
+              </div>
+              </> :
               <Link style={{ color: "inherit", textDecoration: "none" }} to={'/signin'}>
                 <button>
                   SignIn / SignUp

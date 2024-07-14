@@ -6,7 +6,7 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import Layout from './Pages/Layout/Layout';
+import {Layout,AuthLayout} from './Pages/Layout/Layout';
 import Home from './Pages/Home/Home';
 import Signin from './Pages/Signin/Signin';
 import axios from 'axios'
@@ -29,7 +29,13 @@ const router = createBrowserRouter([
       {
         path : '/post/:postId',
         element : <ShowPost />
-      },
+      }
+    ]
+  },
+  {
+    path : '/',
+    element : <AuthLayout/>,
+    children : [
       {
         path : '/profile/:userId',
         element : <Profile />

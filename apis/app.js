@@ -5,7 +5,8 @@ import mongoose from 'mongoose'
 import authRouter from "./routes/authRoute.js"
 import postRouter from "./routes/postRoute.js"
 import userRouter from "./routes/userRoute.js"
-// import commentRouter from "./routes/authRoute.js"
+import storyRouter from "./routes/storyRoute.js"
+import commentRouter from "./routes/commentRoute.js"
 import cors from 'cors'
 import cookieParser from "cookie-parser";
 
@@ -29,6 +30,8 @@ app.use(cors({
 app.use('/api/auth', authRouter);
 app.use('/api/posts', postRouter);
 app.use('/api/users', userRouter);
+app.use('/api/stories', storyRouter);
+app.use('/api/comments', commentRouter);
 
 app.use((err,req,res,next) => {
   console.log( "Error is : ", err);

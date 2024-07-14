@@ -1,0 +1,36 @@
+.imageSection{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    // background-color: rgb(183, 183, 183);
+    border-radius: 10px;
+    // border: 1px solid gray;
+    .leftBtn , .rightBtn{
+        padding: 4px 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .postImages{
+        width: 100%;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        // background-color: red;
+
+        img{
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

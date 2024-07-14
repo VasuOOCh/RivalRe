@@ -96,7 +96,7 @@ const AddPost = ({setAllPosts}) => {
                         <div className='emojiSection'>
                             <EmojiPicker onEmojiClick={
                                 (eomjiData) => {
-                                    console.log(eomjiData);
+                                    
                                     setPostDetails((prev) => (
                                         {...prev, desc : prev.desc + eomjiData.emoji}
                                     ))

@@ -1,0 +1,57 @@
+.storySection{
+    background-color: white;
+    width: 500px;
+    box-shadow: 0 0 10px 1px grey;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+
+    .subStorySection{
+        
+    display: flex;
+    gap: 10px;
+    align-items: center;
+        .userStory{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+    
+            span{
+                font-size: 0.8rem;
+                font-weight: bold;
+            }
+    
+            img{
+                height: 64px;
+                width: 64px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+    
+        .line{
+            height: 100%;
+            width: 4px;
+            border-radius: 5px;
+            background-color: rgb(91, 91, 91);
+        }
+        .otherStories{
+            display: flex;
+        }
+        .addStoryBtn{
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e6e6e6;
+            border: none;
+    
+            &:hover{
+                background-color: #d7d7d7;
+            }
+        }
+    }
+
+    
+}

@@ -2,11 +2,23 @@
     display: flex;
     align-items: center;
     padding: 10px 20px;
-    background-color: white;
+    background-color: rgb(255, 197, 147);
     border-radius: 10px;
     gap: 10px;
-    margin: 10px;
+    margin: 10px 0;
     width: 200px;
+    // background-color: red;
+    animation: user 0.5s ease;
+
+    @keyframes user {
+        from{
+            transform: scale(0);
+        }
+        to{
+            transform: scale(1);
+        }
+    }
+    
 
     img{
         width: 32px;

@@ -29,6 +29,7 @@ function CloudinaryUploadWidget({ uwConfig, setState,text }) {
 
   const initializeCloudinaryWidget = () => {
     if (loaded) {
+      
       var myWidget = window.cloudinary.createUploadWidget(
         uwConfig,
         (error, result) => {
@@ -39,13 +40,16 @@ function CloudinaryUploadWidget({ uwConfig, setState,text }) {
         }
       );
 
-      document.getElementById("upload_widget").addEventListener(
-        "click",
-        function () {
-          myWidget.open();
-        },
-        false
-      );
+      // document.getElementById("upload_widget").addEventListener(
+        // "click",
+        // function () {
+          setTimeout(() => {
+            myWidget.open();
+          }, [1000])
+
+        // },
+        // false
+      // );
     }
   };
 
@@ -58,11 +62,12 @@ function CloudinaryUploadWidget({ uwConfig, setState,text }) {
           display : "flex",
           alignItems : "center" ,
           gap : "5px",
-          backgroundColor : "#87cbff",
+          backgroundColor : "#4388e8",
           padding : "5px",
           border : "none",
           borderRadius: "3px",
-          cursor : 'pointer'
+          cursor : 'pointer',
+          color : "white"
         }}
         onClick={initializeCloudinaryWidget}
       >

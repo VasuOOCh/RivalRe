@@ -5,6 +5,8 @@ import { useState } from "react";
 import AddPost from '../../Components/AddPost/AddPost';
 import axios from 'axios';
 import Card from '../../Components/Card/Card';
+import Story from '../../Components/Story/Story';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -23,12 +25,14 @@ const Home = () => {
                 }
                 fetchAllPosts()
             } else {
+               if(currentUser) {
                 const fetchAllPosts = async () => {
                     const { data } = await axios.get('/posts/subposts');
                     // console.log(data);
                     setAllPosts(data)
                 }
                 fetchAllPosts()
+               }
             }
         } catch (error) {
             console.log(error.response.data);
@@ -45,9 +49,14 @@ const Home = () => {
             <div className="homeMain">
                 {
                     currentUser &&
+                    <>
                     <AddPost setAllPosts={setAllPosts} />
+                    <Story /></>
                 }
-                <div className="postSwitch">
+                
+                {
+                    currentUser && (
+                        <div className="postSwitch">
                     <div className={`homePosts${showHome ? " active" : ""}`} onClick={() => setShowHome(true)}>
                         Home
                     </div>
@@ -55,6 +64,20 @@ const Home = () => {
                         Following
                     </div>
                 </div>
+                    )
+                }
+
+                {
+                    !currentUser && (
+                        <div className="infoAboutLogin">
+                            <Link to={'/signin'} style={{
+                                textDecoration : "none",
+                                color : "#418aff"
+                            }}>
+                            Signin</Link> to add posts, view stories and much more✨
+                        </div>
+                    )
+                }
 
                 <div className="allPosts">
                     {
@@ -67,7 +90,13 @@ const Home = () => {
             </div>
 
             <div className="homeRight">
+                    <div className="messageSection">
 
+                    </div>
+
+                    <div className="suggestionSection">
+                        
+                    </div>
             </div>
 
         </div>

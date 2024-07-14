@@ -1,0 +1,25 @@
+.singleComment{
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+
+    .text{
+        display: flex;
+        flex-direction: column;
+
+        span{
+            font-weight: bold;
+            color: gray;
+            font-size: 0.8rem;
+
+            .deleteBtn{
+                color: rgb(255, 68, 68);
+                cursor: pointer;
+            }
+        }
+
+        p{
+            font-size: 0.9rem;
+        }
+    }
+}

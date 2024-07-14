@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import './imageslider.scss'
 
 const ImageSlider = ({images}) => {
     const imagesRef = useRef();
