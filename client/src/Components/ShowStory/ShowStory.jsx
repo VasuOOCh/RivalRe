@@ -5,12 +5,14 @@ import Card from '../Card/Card'
 import ImageSlider from '../ImageSlider/ImageSlider'
 import User from '../User/User'
 import { useSelector, useDispatch } from 'react-redux'
+import { Vortex } from 'react-loader-spinner'
 
 const ShowStory = ({ story }) => {
     const {currentUser} = useSelector((state) => state.user)
     const [userDetails, setUserDetails] = useState({})
     const [showStory, setShowStory] = useState(false);
-    const [viewers, setViewers] = useState([])
+    const [viewers, setViewers] = useState([]);
+    const [loading,setLoading] = useState(false)
 
     // useEffect(() => {
     //     console.log(viewers);
@@ -44,12 +46,16 @@ const ShowStory = ({ story }) => {
     useEffect(() => {
         if (story) {
             try {
+                
                 async function fetchUser() {
+                    setLoading(true)
                     const { data } = await axios.get('/users/' + story.userId)
                     // console.log(data);
                     setUserDetails(data)
+                    setLoading(false)
                 }
                 fetchUser()
+                
             } catch (error) {
                 console.log(error);
             }
@@ -58,8 +64,24 @@ const ShowStory = ({ story }) => {
 
     return (
         <div className='showStory' onClick={handleStory}>
-            <img className='userImg' src={userDetails.avatar} alt="img" />
-            <span>{userDetails.username}</span>
+            {
+                !loading ? (
+                    <>
+                    <img className='userImg' src={userDetails.avatar} alt="img" />
+                    <span>{userDetails.username}</span>
+                    </> ) : (
+                        <Vortex
+                        visible={true}
+                        height="80"
+                        width="80"
+                        ariaLabel="vortex-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="vortex-wrapper"
+                        colors={['red', 'green', 'blue', 'yellow', 'orange', 'purple']}
+                        />
+                    ) 
+                
+            }
 
             {
                 showStory && (

@@ -45,7 +45,9 @@ export const findUser = async (req,res,next) => {
         // console.log(user);
         if(!user) return next(createError(400, "User doesn't exist"))
         const {password, ...otherInfo} = user._doc
-        res.status(200).json(otherInfo)
+        // setTimeout(() => {
+            res.status(200).json(otherInfo)
+        // },2000)
     } catch (error) {
         next(error)
     }

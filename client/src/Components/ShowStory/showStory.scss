@@ -35,7 +35,7 @@
         .storyMain{
             z-index: 10;
             position: absolute;
-            height: 100%;
+            height: 100vh;
             width: 100%;
             top: 0;
             left: 0;
@@ -49,6 +49,7 @@
             .storySubMain{
                 display: flex;
                 gap: 20px;
+                height: fit-content;
 
                 .viewers{
                     box-shadow: 0 0 10px 1px grey;

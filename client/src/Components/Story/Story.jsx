@@ -10,13 +10,13 @@ const Story = () => {
     const { currentUser } = useSelector((state) => state.user)
     const [stories, setStories] = useState([]);
     const [storyAdded, setStoryAdded] = useState(null);
-    const [showAddStory, setShowAddStory] = useState(false)
+    const [showAddStory, setShowAddStory] = useState(false);
 
     useEffect(() => {
         try {
             async function fetchStories() {
                 const { data } = await axios.get('/stories');
-                // console.log(data);
+                
                 if (data.some((story) => story.userId == currentUser._id)) {
                     setStoryAdded(true)
                 } else {
@@ -30,7 +30,6 @@ const Story = () => {
             console.log(error);
         }
     }, [])
-
 
 
     return (
@@ -62,7 +61,9 @@ const Story = () => {
 
                 {
                     showAddStory && (
-                        <AddStory setStoryAdded={setStoryAdded} setStories={setStories} setShowAddStory={setShowAddStory} />
+                        <div className="addStoryBox">
+                            <AddStory setStoryAdded={setStoryAdded} setStories={setStories} setShowAddStory={setShowAddStory} />
+                        </div>
                     )
                 }
             </div>

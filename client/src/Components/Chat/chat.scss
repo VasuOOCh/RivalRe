@@ -1,0 +1,234 @@
+.chat {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  
+    .messages {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      height: 100%;
+      // background-color: green;
+  
+      h1 {
+        font-weight: 300;
+      }
+  
+      .users{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        .user {
+  
+            display: flex;
+            gap: 20px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 10px;
+            align-items: center;
+            font-size: 16px;
+            color: rgb(65, 65, 65);
+            cursor: pointer;
+        
+            img {
+              height: 32px;
+              width: 32px;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+          }
+      }
+  
+      
+  
+      .message {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+  
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+  
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  
+    .chatBox {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      flex: 1;
+      gap: 10px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      // justify-content: space-between;
+      // background-color: green;
+  
+      .top {
+        margin-top: 10px;
+        background-color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        .user {
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          background-color: #e6e6e6;
+          padding: 5px 10px;
+  
+          img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+        .close {
+          cursor: pointer;
+          background-color: black;
+          color: white;
+          padding: 5px 10px;
+          border-radius: 50%;
+  
+          &:hover{
+            transform: scale(1.05);
+          }
+        }
+      }
+      .center {
+        height: 350px;
+        overflow-y: scroll;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 20px;
+  
+        &::-webkit-scrollbar{
+          width: 10px;
+        }
+
+        &::-webkit-scrollbar-track{
+          background-color: #e6e6e6;
+          border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb{
+          background-color: black;
+          border-radius: 10px;
+        }
+
+  
+        .sender {
+          background-color: rgb(32, 110, 255);
+          color: white;
+          // width: max-content;
+          max-width: fit-content;
+          margin-left: auto;
+          border-radius: 20px 0 20px 10px;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          text-align: justify;
+  
+          &:hover > .time {
+              height: auto;
+              width: auto;
+              transform: scale(1);
+            }
+  
+          .time {
+              font-size: 10px;
+              color: rgb(223, 223, 223);
+              display: flex;
+              gap: 10px;
+              height: 0;
+              width: 0;
+              overflow: hidden;
+              transition: all 1s ease;
+            }
+        }
+  
+        .reciever{
+          border-radius: 0 20px 10px 20px;
+          // width: max-content;
+          max-width: fit-content;
+          background-color: rgb(234, 234, 234);
+          padding: 10px;
+          display: flex;
+          text-align: justify;
+            flex-direction: column;
+            gap: 5px;
+  
+            &:hover .time{
+            height: auto;
+              width: auto;
+            }
+  
+          .time {
+              font-size: 10px;
+              color: gray;
+              display: flex;
+              gap: 10px;
+              overflow: hidden;
+              height: 0;
+                width: 0;
+            }
+        }
+      }
+      .bottom {
+        // border-top: 2px solid #f7c14b85;
+        border: 1px solid grey;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        textarea{
+          flex:3;
+          height: 100%;
+          border: none;
+          padding: 20px;
+        }
+  
+        button{
+          flex:1;
+          background-color: #5dc1ff;
+          height: 100%;
+          border: none;
+          cursor: pointer;
+  
+          &:hover{
+            background-color: #e5f41585;
+          }
+  
+          &:active {
+            background-color: #eda20085;
+          }
+        }
+      }
+    }
+  }
+  

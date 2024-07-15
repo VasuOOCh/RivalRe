@@ -12,16 +12,18 @@ import ImageSlider from '../ImageSlider/ImageSlider';
 import { Link, useNavigate } from 'react-router-dom';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Comment from '../Comments/Comment';
+import { ThreeDots } from 'react-loader-spinner';
 
 
 
-const Card = ({post}) => {
+const Card = ({ post }) => {
     const navigate = useNavigate()
     const [openSection, setOpenSection] = useState(false)
     const dispatch = useDispatch()
     const { currentUser } = useSelector((state) => state.user)
     const [userDetails, setUserDetails] = useState({});
-    const [showComments,setShowComments] = useState(false)
+    const [showComments, setShowComments] = useState(false);
+    const [loading, setLoading] = useState(false)
     async function deletePost() {
         try {
             await axios.delete('/posts/' + post._id)
@@ -34,9 +36,11 @@ const Card = ({post}) => {
 
     useEffect(() => {
         async function fetchUserDetails() {
+            setLoading(true)
             const { data } = await axios.get('/users/' + post.userId)
             // console.log(data);
-            setUserDetails(data)
+            setUserDetails(data);
+            setLoading(false)
         }
         fetchUserDetails()
     }, [post])
@@ -53,7 +57,8 @@ const Card = ({post}) => {
 
     async function followUserFunc() {
         try {
-            const { data } = await axios.put('/users/follow/' + userDetails._id)
+            const { data } = await axios.put('/users/follow/' + userDetails._id);
+            await axios.post('/chats/add')
             dispatch(followUser(userDetails._id))
 
         } catch (error) {
@@ -63,6 +68,7 @@ const Card = ({post}) => {
     async function unfollowUserFunc() {
         try {
             const { data } = await axios.put('/users/unfollow/' + userDetails._id)
+            await axios.post('/chats/add')
             dispatch(unfollowUser(userDetails._id))
 
         } catch (error) {
@@ -115,6 +121,23 @@ const Card = ({post}) => {
         }
     }
 
+    if (loading) {
+        return (
+            <div className="cardLoader">
+                <ThreeDots
+                    visible={true}
+                    height="80"
+                    width="80"
+                    color="#4fa94d"
+                    radius="9"
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                />
+            </div>
+        )
+    }
+
     return (
         <div className='cardMain'>
             <div className="userSection">
@@ -145,10 +168,10 @@ const Card = ({post}) => {
                         openSection && (
                             <div className="options">
                                 <Link style={{
-                                    textDecoration : "none",
+                                    textDecoration: "none",
                                     color: 'inherit'
                                 }} to={'/profile/' + userDetails._id}>
-                                <button>View Profile</button>
+                                    <button>View Profile</button>
                                 </Link>
                                 {
                                     currentUser._id === userDetails._id && (
@@ -196,14 +219,14 @@ const Card = ({post}) => {
                     Comments
                 </div>
 
-                
+
             </div>
             {
-                    showComments && (
+                showComments && (
 
-                        <Comment postId={post._id} />
-                    )
-                }
+                    <Comment postId={post._id} />
+                )
+            }
 
         </div>
     )

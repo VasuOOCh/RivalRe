@@ -4,7 +4,7 @@
     padding: 20px;
     display: flex;
     gap: 20px;
-    position: relative;
+    // position: relative;
 
     .infoAboutLogin{
         font-size: 1rem;
@@ -50,7 +50,7 @@
     }
     .homeRight{
         flex: 1;
-        background-color: red;
+        // background-color: red;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -59,14 +59,26 @@
         position: sticky;
         top: 0px;
         right: 0px;
+        // bottom: 0;
+
+        h2{
+            padding: 0 10px;
+        }
 
         .messageSection{
+            padding: 10px;
+            box-shadow: 0 0 10px 1px grey;
             flex: 1;
             background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             border-radius: 5px;
         }
 
         .suggestionSection{
+            padding: 10px;
+            box-shadow: 0 0 10px 1px grey;
             flex: 1;
             background-color: white;
             border-radius: 5px;
@@ -81,4 +93,11 @@
         align-items: center;
         
     }
+}
+
+.loadBox{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

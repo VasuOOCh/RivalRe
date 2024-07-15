@@ -2,7 +2,7 @@
     z-index: 10;
     position: absolute;
     background-color: rgba(128, 128, 128, 0.326);
-    height: 100%;
+    height: 100vh;
     backdrop-filter: blur(5px);
     width: 100%;
     top: 0;
@@ -13,6 +13,7 @@
     justify-content: center;
 
     .wrapper {
+        height: fit-content;
         padding: 20px;
         border-radius: 5px;
         background-color: white;

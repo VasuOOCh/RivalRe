@@ -28,7 +28,9 @@ export const getPosts = async (req,res,next) => {
 
         }
         const posts = await Post.find(queryObj)
-        res.status(200).json(posts)
+        // setTimeout(() => {
+            res.status(200).json(posts)
+        // },2000)
     } catch (error) {
         next(error)
     }

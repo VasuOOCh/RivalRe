@@ -7,38 +7,63 @@ import axios from 'axios';
 import Card from '../../Components/Card/Card';
 import Story from '../../Components/Story/Story';
 import { Link } from 'react-router-dom';
+import Chat from '../../Components/Chat/Chat';
+import {BallTriangle} from 'react-loader-spinner'
 
 
 const Home = () => {
     const { currentUser } = useSelector((state) => state.user);
-    const [showHome, setShowHome] = useState(true)
+    const [showHome, setShowHome] = useState(true);
 
-    const [allPosts, setAllPosts] = useState([])
+    const [allPosts, setAllPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+
 
     useEffect(() => {
         try {
             if (showHome) {
                 const fetchAllPosts = async () => {
+                    setLoading(true)
                     const { data } = await axios.get('/posts');
                     // console.log(data);
-                    setAllPosts(data)
+                    setAllPosts(data);
+                    setLoading(false)
                 }
                 fetchAllPosts()
             } else {
-               if(currentUser) {
-                const fetchAllPosts = async () => {
-                    const { data } = await axios.get('/posts/subposts');
-                    // console.log(data);
-                    setAllPosts(data)
+                if (currentUser) {
+                    setLoading(true)
+                    const fetchAllPosts = async () => {
+                        const { data } = await axios.get('/posts/subposts');
+                        // console.log(data);
+                        setAllPosts(data)
+                        setLoading(false)
+                    }
+                    fetchAllPosts()
                 }
-                fetchAllPosts()
-               }
             }
         } catch (error) {
             console.log(error.response.data);
 
         }
     }, [showHome, currentUser])
+
+    if (loading) {
+        return (
+            <div className='loadBox'>
+                <BallTriangle
+                    height={100}
+                    width={100}
+                    radius={5}
+                    color="#4fa94d"
+                    ariaLabel="ball-triangle-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />
+            </div>
+        )
+    }
 
 
     return (
@@ -50,20 +75,20 @@ const Home = () => {
                 {
                     currentUser &&
                     <>
-                    <AddPost setAllPosts={setAllPosts} />
-                    <Story /></>
+                        <AddPost setAllPosts={setAllPosts} />
+                        <Story /></>
                 }
-                
+
                 {
                     currentUser && (
                         <div className="postSwitch">
-                    <div className={`homePosts${showHome ? " active" : ""}`} onClick={() => setShowHome(true)}>
-                        Home
-                    </div>
-                    <div className={`followingPosts${!showHome ? " active" : ""}`} onClick={() => setShowHome(false)}>
-                        Following
-                    </div>
-                </div>
+                            <div className={`homePosts${showHome ? " active" : ""}`} onClick={() => setShowHome(true)}>
+                                Home
+                            </div>
+                            <div className={`followingPosts${!showHome ? " active" : ""}`} onClick={() => setShowHome(false)}>
+                                Following
+                            </div>
+                        </div>
                     )
                 }
 
@@ -71,10 +96,10 @@ const Home = () => {
                     !currentUser && (
                         <div className="infoAboutLogin">
                             <Link to={'/signin'} style={{
-                                textDecoration : "none",
-                                color : "#418aff"
+                                textDecoration: "none",
+                                color: "#418aff"
                             }}>
-                            Signin</Link> to add posts, view stories and much more✨
+                                Signin</Link> to add posts, chat with people , view stories and much more✨
                         </div>
                     )
                 }
@@ -90,13 +115,18 @@ const Home = () => {
             </div>
 
             <div className="homeRight">
-                    <div className="messageSection">
+                {
+                    currentUser && (
+                        <div className="messageSection">
+                            <h2>Messages</h2>
+                            <Chat />
+                        </div>
+                    )
+                }
 
-                    </div>
-
-                    <div className="suggestionSection">
-                        
-                    </div>
+                {/* <div className="suggestionSection">
+                        <h3>Suggestions</h3>
+                    </div> */}
             </div>
 
         </div>
